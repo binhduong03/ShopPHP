@@ -211,6 +211,12 @@ tbody tr.hide td img {
     background-color: #6fcaea;
 }
 
+.bg-custom-green {
+    background-color: rgba(87, 182, 87, 0.8); /* Thay thế số 0.5 bằng độ mờ mong muốn */
+    color: #57B657;
+}
+
+
 
 @media (max-width: 1000px) {
     td:not(:first-of-type) {

@@ -9,55 +9,58 @@
       <h5 class="mb-0">Thêm Bài Viết Mới</h5>
     </div>
     <div class="card-body">
-      <form method="POST" action="{{ URL::to('add-post') }}">
+      <form method="post" action="{{URL::to('save-post')}}">
+        @csrf
         <div class="row mb-3">
           <div class="col-sm-12">
-            <label for="post-name" class="form-label">Tên</label>
+            <label for="Name" class="form-label">Tên</label>
             <div class="input-group">
               <span class="input-group-text bg-white text-muted"><i class="fas fa-heading"></i></span>
-              <input type="text" class="form-control" id="post-name" placeholder="Nhập tên bài viết" />
+              <input type="text" name="Name" class="form-control" id="name" placeholder="Nhập tên bài viết" />
             </div>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-12">
-            <label for="post-description" class="form-label">Mô Tả</label>
+            <label for="Description" class="form-label">Mô Tả</label>
             <div class="input-group">
               <span class="input-group-text bg-white text-muted"><i class="fas fa-file-alt"></i></span>
-              <textarea class="form-control" id="post-description" placeholder="Nhập mô tả bài viết"></textarea>
+              <textarea class="form-control" name="Description" id="Description" placeholder="Nhập mô tả bài viết"></textarea>
             </div>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-12">
-            <label for="post-details" class="form-label">Chi Tiết</label>
+            <label for="Detail" class="form-label">Chi Tiết</label>
             <div class="input-group">
               <span class="input-group-text bg-white text-muted"><i class="fas fa-info-circle"></i></span>
-              <textarea class="form-control" id="post-details" placeholder="Nhập chi tiết bài viết"></textarea>
+              <textarea class="form-control" name="Detail" id="Detail" placeholder="Nhập chi tiết bài viết"></textarea>
             </div>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-12">
-            <label for="post-image" class="form-label">Hình Ảnh</label>
+            <label for="Image" class="form-label">Hình Ảnh</label>
             <div class="input-group">
               <span class="input-group-text bg-white text-muted"><i class="fas fa-image"></i></span>
-              <input type="file" class="form-control" id="post-image" />
+              <input type="file" name="Image" class="form-control" id="Image" />
             </div>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-sm-12">
-            <label for="post-isactive" class="form-label">Kích Hoạt</label>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="post-isactive" />
-              <label class="form-check-label" for="post-isactive">Kích Hoạt</label>
+            <label for="IsActive" class="form-label">Kích Hoạt</label>
+              <div class="form-check">
+                  <input type="hidden" name="IsActive" value="0">
+                  <input type="checkbox" name="IsActive" class="form-check-input" id="IsActive" value="1" {{ old('IsActive') ? 'checked' : '' }}>
+                  <label class="form-check-label" for="IsActive">Kích Hoạt</label>
+              </div>
             </div>
           </div>
         </div>
         <div class="row justify-content-end">
           <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Bài Viết</button>
+            <button type="submit" name="add_post" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Bài Viết</button>
           </div>
         </div>
       </form>
